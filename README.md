@@ -1,4 +1,4 @@
-# grepv2
+# arene-app
 
 ## Project setup
 ```
