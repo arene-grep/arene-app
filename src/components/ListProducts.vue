@@ -1,13 +1,11 @@
 <template>
   <div>
     <h2>List of all products</h2>
-    <ul>
-      <li v-for="product in products" :key="product.name">
+      <div v-for="product in products" :key="product.id">
         name: {{ product.name }}, price: {{product.price}}
         <router-link tag="button" :to="{name: 'getProductID', params:{id:product.id}}">Modifier</router-link>
-        <button v-on:click="deleteProduct(product)">Supprimer</button>
-      </li>
-    </ul>
+        <button v-on:click="deleteProduct(product.id)">Supprimer</button>
+      </div>
   </div>
 </template>
 
@@ -25,7 +23,6 @@ export default {
     api.getProducts()
         .done((data)=> {
           this.products = data
-          console.log(this.products)
         })
         .fail(() => {
           console.log("ERROR")
@@ -35,8 +32,11 @@ export default {
         })
   },
   methods: {
-    deleteProduct: function (product){
-      console.log("Delete", product.name )
+    deleteProduct: function (id){
+      api.deleteProduct(id)
+          .done((data) => {
+            console.log(data)
+          })
     },
     getProduct: function(id){
       api.getProduct(id)

@@ -14,7 +14,7 @@ const routes = [
   {
     path: '/addProduct',
     name: 'AddProduct',
-    component: () => import('../views/Form.vue')
+    component: () => import('../views/ProductAdd.vue')
   },
   {
     path: '/getProducts',
@@ -24,8 +24,8 @@ const routes = [
   {
     path: '/getProducts/:id',
     name: 'getProductID',
-    component: () => import('../views/Product.vue')
-  }
+    component: () => import('../views/ProductUpdate.vue')
+  },
 
 ]
 

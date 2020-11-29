@@ -29,11 +29,18 @@ function addProduct(product){
     })
 }
 
+function deleteProduct(id){
+    return $.ajax({
+        url: APIENDPOINT + 'products' + id,
+        method: 'DELETE',
+    })
+}
 
 
 
 export default {
     getProducts,
     getProduct,
-    addProduct
+    addProduct,
+    deleteProduct
 }

@@ -8,8 +8,6 @@
       <FormulateInput type="number" name="minimum_stock" label="Minimum Stock" validation="required" />
       <FormulateInput type="submit" name="addProduct" label="Add" />
     </FormulateForm>
-    <h3>Values:</h3>
-    {{formValues}}
   </div>
 </template>
 
@@ -19,7 +17,6 @@ import api from "@/api";
 export default {
   data: () => ({
     formValues:{},
-    formValuesUpdate:{}
   }),
   methods:{
     addProduct: function (){

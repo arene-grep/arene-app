@@ -10,7 +10,7 @@
 import FormAddProduct from '@/components/FormAddProduct.vue'
 
 export default {
-  name: 'Form',
+  name: 'ProductAdd',
   components: {
     FormAddProduct
   }

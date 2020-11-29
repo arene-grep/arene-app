@@ -1,33 +1,31 @@
 <template>
   <div>
     <h2>Update a product</h2>
-    <FormulateForm v-model="formValues" @submit="handleSubmit">
-      <FormulateInput name="name" :value="formValuesUpdate.name" label="Name" validation="required" />
-      <FormulateInput type="number" name="price" label="Price" validation="required" />
-      <FormulateInput type="number" name="stock" label="Stock" validation="required" />
-      <FormulateInput type="number" name="minimum_stock" label="Minimum Stock" validation="required" />
-      <FormulateInput type="submit" name="addProduct" label="Add" />
-    </FormulateForm>
-    <h3>Values:</h3>
-    {{formValues}}
+    <div>
+      <input :value="myProduct.name"  name="name" label="Name" required @input="changeProduct(myProduct, 1)">
+      <input :value="myProduct.price" type="number" name="price" label="Price" required @input="changeProduct(myProduct, 2)"/>
+      <input :value="myProduct.stock" type="number" name="stock" label="Stock" required @input="changeProduct(myProduct, 3)"/>
+      <input :value="myProduct.minimum_stock" type="number" name="minimum_stock" label="Minimum Stock" required @input="changeProduct(myProduct, 4)"/>
+      <button type="submit" name="updateProduct" label="Add" @click="updateProduct">Update</button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   data: () => ({
-    formValues:{},
-    formValuesUpdate:{}
+    formValues: {},
+    product:[]
   }),
-  methods:{
-    handleSubmit(){
-      console.log(this.formValues)
-      console.log(this.formValues.name)
-    }
-  },
-  beforeMount() {
-    this.formValuesUpdate={
-      name:"test"
+  props: {myProduct: Object},
+  methods: {
+    updateProduct() {
+      this.changeProduct()
+    },
+    changeProduct(item, key){
+      var osef=Object.values(item)
+      this.product[key]=osef[key]
+      console.log(osef)
     }
   }
 };
