@@ -17,12 +17,12 @@ const routes = [
     component: () => import('../views/ProductAdd.vue')
   },
   {
-    path: '/getProducts',
+    path: '/products',
     name: 'GetProducts',
     component: () => import('../views/Products.vue')
   },
   {
-    path: '/getProducts/:id',
+    path: '/products/:id',
     name: 'getProductID',
     component: () => import('../views/ProductUpdate.vue')
   },

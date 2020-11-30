@@ -1,10 +1,7 @@
 <template>
   <div class="home" v-show="this.product">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <img alt="Vue logo" src="../assets/logo-arene.png">
     <FormUpdateProduct :my-product="this.product"></FormUpdateProduct>
-    <div v-show="this.product">
-      {{this.product.price}}
-    </div>
   </div>
 </template>
 

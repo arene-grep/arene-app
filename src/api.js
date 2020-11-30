@@ -31,16 +31,28 @@ function addProduct(product){
 
 function deleteProduct(id){
     return $.ajax({
-        url: APIENDPOINT + 'products' + id,
+        url: APIENDPOINT + 'products/' + id,
         method: 'DELETE',
     })
 }
 
-
+function updateProduct(id, product){
+    return $.ajax({
+        url: APIENDPOINT + 'products/' + id,
+        method: 'PUT',
+        data: {
+            name: product.name,
+            price: product.price,
+            stock: product.stock,
+            minimum_stock: product.minimum_stock
+        }
+    })
+}
 
 export default {
     getProducts,
     getProduct,
     addProduct,
-    deleteProduct
+    deleteProduct,
+    updateProduct
 }

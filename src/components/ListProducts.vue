@@ -2,9 +2,12 @@
   <div>
     <h2>List of all products</h2>
       <div v-for="product in products" :key="product.id">
-        name: {{ product.name }}, price: {{product.price}}
+        name: {{ product.name }}<br>
+        price: {{ product.price }}<br>
+        stock: {{ product.stock }}<br>
+        minimum_stock: {{ product.stock }}<br>
         <router-link tag="button" :to="{name: 'getProductID', params:{id:product.id}}">Modifier</router-link>
-        <button v-on:click="deleteProduct(product.id)">Supprimer</button>
+        <button v-on:click="deleteProduct(product.id)">Supprimer</button><br><br>
       </div>
   </div>
 </template>
@@ -16,7 +19,7 @@ import api from '../api.js'
 export default {
   data: () => {
     return {
-      products:{}
+      products:[]
     }
   },
   beforeMount() {
@@ -25,16 +28,18 @@ export default {
           this.products = data
         })
         .fail(() => {
-          console.log("ERROR")
         })
         .always(()=> {
-          console.log("DONE OR FAIL DONT CARE")
         })
   },
   methods: {
     deleteProduct: function (id){
       api.deleteProduct(id)
           .done((data) => {
+            var index = this.products.map(function(item) {
+              return item.Id
+            }).indexOf(id);
+            this.products.splice(index, 1);
             console.log(data)
           })
     },

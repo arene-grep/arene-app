@@ -1,13 +1,19 @@
 <template>
   <div>
     <h2>Add a product</h2>
-    <FormulateForm v-model="formValues" @submit="addProduct">
-      <FormulateInput name="name" label="Name" validation="required" />
-      <FormulateInput type="number" name="price" label="Price" validation="required" />
-      <FormulateInput type="number" name="stock" label="Stock" validation="required" />
-      <FormulateInput type="number" name="minimum_stock" label="Minimum Stock" validation="required" />
-      <FormulateInput type="submit" name="addProduct" label="Add" />
-    </FormulateForm>
+    <div>
+      <form>
+        <label for="name">Name</label>
+        <br><input type="text" id="name" required /><br><br>
+        <label for="price">Price</label>
+        <br><input type="number" id="price" min="0" step="any" required /><br><br>
+        <label for="stock">Stock</label>
+        <br><input type="number" id="stock" min="0" required /><br><br>
+        <label for="minimum_stock">Minimum stock</label>
+        <br><input type="number" id="minimum_stock" min="0" required /><br><br>
+      <button type="button" id="addProduct" @click="addProduct">Add</button><br>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -16,12 +22,18 @@ import api from "@/api";
 
 export default {
   data: () => ({
-    formValues:{},
+    product:{},
   }),
   methods:{
     addProduct: function (){
-      api.addProduct(this.formValues)
+      this.product.name = document.getElementById("name").value;
+      this.product.price = document.getElementById("price").value;
+      this.product.stock = document.getElementById("stock").value;
+      this.product.minimum_stock = document.getElementById("minimum_stock").value;
+
+      api.addProduct(this.product)
           .done((data)=> {
+            window.location.pathname = '/products'
             console.log(data)
           })
     }
