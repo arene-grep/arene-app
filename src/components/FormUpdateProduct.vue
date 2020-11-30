@@ -3,6 +3,7 @@
     <h2>Update a product</h2>
     <div>
       <form>
+        <!-- Permet de récupérer le produit choisi grâce au props "myProduct" -->
         <label for="name">Name</label>
         <br><input :value="myProduct.name" id="name" required /><br><br>
         <label for="price">Price</label>
@@ -18,10 +19,9 @@
 </template>
 
 <script>
-import api from "@/api";
+import api from "@/connection/api";
 export default {
   data: () => ({
-    formValues: {},
     product:{},
     idProduct:null
   }),
@@ -41,6 +41,7 @@ export default {
     },
   },
   beforeUpdate() {
+    // obligé de récupérer le produit de cette manière sinon undefined
     this.idProduct= this.myProduct.id
   }
 };

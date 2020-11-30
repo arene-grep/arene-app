@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
+      <!-- C'est le menu qui s'affiche en haut de chaque page qui permet de naviguer entre les pages -->
       <router-link to="/">Home</router-link> |
       <router-link to="/addProduct">Add a product</router-link> |
       <router-link to="/products">Products</router-link>
     </div>
+    <!-- Ce qui permet de prendre en compte les routes définis dans le dossier router -->
     <router-view/>
   </div>
 </template>

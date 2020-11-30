@@ -11,8 +11,6 @@ import FormAddProduct from '@/components/FormAddProduct.vue'
 
 export default {
   name: 'ProductAdd',
-  components: {
-    FormAddProduct
-  }
+  components: {FormAddProduct}
 }
 </script>

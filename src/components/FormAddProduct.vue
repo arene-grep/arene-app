@@ -11,14 +11,14 @@
         <br><input type="number" id="stock" min="0" required /><br><br>
         <label for="minimum_stock">Minimum stock</label>
         <br><input type="number" id="minimum_stock" min="0" required /><br><br>
-      <button type="button" id="addProduct" @click="addProduct">Add</button><br>
+        <button type="button" id="addProduct" @click="addProduct">Add</button><br>
       </form>
     </div>
   </div>
 </template>
 
 <script>
-import api from "@/api";
+import api from "@/connection/api";
 
 export default {
   data: () => ({
