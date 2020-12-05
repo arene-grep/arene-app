@@ -11,6 +11,8 @@
         <br><input type="number" id="stock" min="0" required /><br><br>
         <label for="minimum_stock">Minimum stock</label>
         <br><input type="number" id="minimum_stock" min="0" required /><br><br>
+        <label for="category">Category</label>
+        <br><input type="number" id="category" min="0" required /><br><br>
         <button type="button" id="addProduct" @click="addProduct">Add</button><br>
       </form>
     </div>
@@ -30,6 +32,7 @@ export default {
       this.product.price = document.getElementById("price").value;
       this.product.stock = document.getElementById("stock").value;
       this.product.minimum_stock = document.getElementById("minimum_stock").value;
+      this.product.category = document.getElementById("category").value;
 
       api.addProduct(this.product)
           .done((data)=> {

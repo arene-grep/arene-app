@@ -24,7 +24,8 @@ function addProduct(product){
             name: product.name,
             price: product.price,
             stock: product.stock,
-            minimum_stock: product.minimum_stock
+            minimum_stock: product.minimum_stock,
+            category_id: product.category
         }
     })
 }
@@ -44,7 +45,8 @@ function updateProduct(id, product){
             name: product.name,
             price: product.price,
             stock: product.stock,
-            minimum_stock: product.minimum_stock
+            minimum_stock: product.minimum_stock,
+            category_id: product.category
         }
     })
 }

@@ -12,6 +12,8 @@
         <br><input :value="myProduct.stock" type="number" id="stock" min="0" required /><br><br>
         <label for="minimum_stock">Minimum stock</label>
         <br><input :value="myProduct.minimum_stock" type="number" id="minimum_stock" min="0" required /><br><br>
+        <label for="category">Category</label>
+        <br><input :value="myProduct.category_id" type="number" id="category" min="0" required /><br><br>
         <button type="button" id="updateProduct" @click="updateProduct">Update</button><br>
       </form>
     </div>
@@ -32,6 +34,7 @@ export default {
       this.product.price = document.getElementById("price").value;
       this.product.stock = document.getElementById("stock").value;
       this.product.minimum_stock = document.getElementById("minimum_stock").value;
+      this.product.category = document.getElementById("category").value;
 
       api.updateProduct(this.idProduct, this.product)
           .done((data)=> {

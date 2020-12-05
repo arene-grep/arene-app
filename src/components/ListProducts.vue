@@ -6,7 +6,8 @@
         Name: {{ product.name }}<br>
         Price: {{ product.price }}<br>
         Stock: {{ product.stock }}<br>
-        Minimum stock: {{ product.stock }}<br>
+        Minimum stock: {{ product.minimum_stock }}<br>
+        Category: {{ product.category_id }}<br>
         <router-link tag="button" :to="{name: 'getProductID', params:{id:product.id}}">Modifier</router-link>
         <button v-on:click="deleteProduct(product.id)">Supprimer</button><br><br>
       </div>
